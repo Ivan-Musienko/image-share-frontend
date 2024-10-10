@@ -69,7 +69,10 @@ export default function UserShare() {
                       color="primary"
                       startContent={<CopyIcon stroke="currentColor" />}
                       onClick={() => {
-                        navigator.clipboard.writeText(image.Url);
+                        navigator.clipboard.writeText(
+                          "https://image-share-zeta.vercel.app/shared/" +
+                          image.Uuid,
+                        );
                       }}
                     />
                   </Tooltip>

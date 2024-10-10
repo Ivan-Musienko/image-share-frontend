@@ -18,7 +18,7 @@ export default function UserAccount() {
     <div className="w-full">
       {account ? (
         <div className="grid">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center gap-1 justify-between">
             <Avatar
               alt="Avatar"
               className="!w-[67px] !h-[67px] text-large"
