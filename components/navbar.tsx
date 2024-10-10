@@ -48,6 +48,7 @@ export default function NavHeader() {
                   onClick={() => {
                     axios.get("/api/auth/logout").then(() => {
                       setAccount(null);
+                      document.cookie = "";
                       router.replace("/auth");
                     });
                   }}
