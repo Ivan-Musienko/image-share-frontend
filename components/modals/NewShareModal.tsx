@@ -41,15 +41,17 @@ export default function NewShareModal() {
         setAccount(account);
         setModal(null);
       }
-    } catch (error) {
+    } catch (err) {
       setLoading(false);
 
-      if (error instanceof AxiosError) {
+      if (err instanceof AxiosError) {
         setError(
-          Array.isArray(error.response?.data.message)
-            ? error.response?.data.message[0]
-            : error.message,
+          Array.isArray(err.response?.data.message)
+            ? err.response?.data.message[0]
+            : err.response?.data.message,
         );
+      } else {
+        setError("Критична помилка");
       }
     }
   }

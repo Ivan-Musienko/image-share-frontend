@@ -85,8 +85,12 @@ export default function AuthPage() {
     } catch (err) {
       setLoading(false);
 
-      if (err instanceof Error) {
-        setError(Array.isArray(err.message) ? err.message[0] : err.message);
+      if (err instanceof AxiosError) {
+        setError(
+          Array.isArray(err.response?.data.message)
+            ? err.response?.data.message[0]
+            : err.response?.data.message,
+        );
       } else {
         setError("Критична помилка");
       }

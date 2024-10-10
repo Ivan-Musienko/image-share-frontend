@@ -49,15 +49,15 @@ export default function AccountUpdateModal() {
         setAccount(account);
         setModal(null);
       }
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        setLoading(false);
-
+    } catch (err) {
+      if (err instanceof AxiosError) {
         setError(
-          Array.isArray(error.response?.data.message)
-            ? error.response?.data.message[0]
-            : error.message,
+          Array.isArray(err.response?.data.message)
+            ? err.response?.data.message[0]
+            : err.response?.data.message,
         );
+      } else {
+        setError("Критична помилка");
       }
     }
   }
