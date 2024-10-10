@@ -3,7 +3,7 @@ module.exports = {
   async rewrites() {
     return [{
       source: "/api/:path*",
-      destination: "http://localhost:8080/api/:path*",
+      destination: "https://image-share-backend.onrender.com/api/:path*",
     }, ];
   },
   images: {
