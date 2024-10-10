@@ -160,6 +160,7 @@ export default function AuthPage() {
                   type="text"
                 />
                 <Input
+                  isRequired
                   label="Фамілія"
                   name="LastName"
                   placeholder="Введіть вашу фамілію"
