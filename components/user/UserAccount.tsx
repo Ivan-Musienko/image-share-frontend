@@ -18,10 +18,10 @@ export default function UserAccount() {
     <div className="w-full">
       {account ? (
         <div className="grid">
-          <div className="flex gap-5">
+          <div className="flex items-center justify-between">
             <Avatar
               alt="Avatar"
-              className="!w-25 !h-25 text-large"
+              className="!w-[67px] !h-[67px] text-large"
               src={account.Avatar}
             />
             <div>
