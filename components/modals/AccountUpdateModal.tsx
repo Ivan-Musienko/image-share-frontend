@@ -51,6 +51,7 @@ export default function AccountUpdateModal() {
       }
     } catch (err) {
       if (err instanceof AxiosError) {
+        setLoading(false);
         setError(
           Array.isArray(err.response?.data.message)
             ? err.response?.data.message[0]

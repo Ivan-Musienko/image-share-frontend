@@ -29,6 +29,7 @@ export default function DeleteShareImageModal({ uuid }: { uuid: string }) {
       setAccount(account);
       setModal(null);
     } catch (err) {
+      setLoading(false);
       if (err instanceof AxiosError) {
         setError(
           Array.isArray(err.response?.data.message)
