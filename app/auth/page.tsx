@@ -6,7 +6,7 @@ import { Card, CardBody } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Button } from "@nextui-org/button";
-import axios, { GenericFormData } from "axios";
+import axios, { AxiosError, GenericFormData } from "axios";
 import { useRouter } from "next/navigation";
 
 import { GoogleLogoSvg } from "@/icons/CompanySvgs";
@@ -51,8 +51,12 @@ export default function AuthPage() {
     } catch (err) {
       setLoading(false);
 
-      if (err instanceof Error) {
-        setError(Array.isArray(err.message) ? err.message[0] : err.message);
+      if (err instanceof AxiosError) {
+        setError(
+          Array.isArray(err.response?.data.message)
+            ? err.response?.data.message[0]
+            : err.response?.data.message,
+        );
       } else {
         setError("Критична помилка");
       }
